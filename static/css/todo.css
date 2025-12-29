@@ -1,0 +1,804 @@
+/* ========================= THEME VARIABLES ========================= */
+:root {
+    --bg: #f8fafc;          /* Body background color */
+    --card: #ffffff;        /* Card / container background */
+    --text: #0f172a;        /* Default text color */
+    --border: #64748b;      /* Borders */
+    --primary: #0ea5e9;     /* Primary button / accent color */
+}
+
+.dark {
+    --bg: #0f172a;
+    --card: #020617;
+    --text: #e5e7eb;
+    --border: #cbd5e1;
+    --primary: #38bdf8;
+}
+
+/* ========================= RESET STYLES ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Segoe UI, Arial, sans-serif;
+}
+
+/* ========================= BODY ========================= */
+body {
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ========================= CONTAINER ========================= */
+.container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    transition: background 0.3s;
+}
+
+/* ========================= FORM SECTION ========================= */
+.form-section {
+    position: relative;
+    border: 1px solid var(--border); /* visible border */
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    background: var(--card);
+    transition: background 0.3s, border 0.3s;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: calc(50% - 120px) 130px 120px 100px;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+/* ========================= FORM HEADINGS ========================= */
+.head-title {
+    font-size: 2rem; /* ~32px */
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.sub-title {
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    color: #64748b; /* subtle gray-blue */
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* ========================= INPUTS ========================= */
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+
+    transition: all 0.25s ease;
+}
+
+/* ===== PLACEHOLDER ===== */
+input::placeholder {
+    color: #94a3b8;
+}
+
+/* ===== HOVER ===== */
+input:hover {
+    border-color: var(--primary);
+}
+
+/* ===== FOCUS ===== */
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* ===== DISABLED ===== */
+input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ===== ERROR STATE ===== */
+input.error {
+    border-color: #ef4444;
+}
+
+input.error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+}
+
+#endTimeInput{
+  background-color: #f5eeee;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color .3s, color .3s, border-color .3s;
+}
+
+body.dark #endTimeInput{
+  background-color: #303c4d;
+  color: #f9fafb;
+  border-color: #374151;
+  color-scheme: dark;
+}
+
+
+
+body.dark #endTimeInput::-webkit-calendar-picker-indicator{
+  filter: invert(1) brightness(1.2);
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+/* hover effect on icon */
+body.dark #endTimeInput:hover::-webkit-calendar-picker-indicator{
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* smooth animation */
+#endTimeInput::-webkit-calendar-picker-indicator{
+  transition: all 0.2s ease;
+}
+
+/* File upload */
+.file-upload {
+    border: 1px dashed #334155;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+.file-upload input {
+    display: none;
+}
+
+/* ========================= BUTTONS ========================= */
+.btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== ADD BUTTON ===== */
+.add-btn {
+    background: linear-gradient(135deg, var(--primary), #22c55e);
+    color: #020617;
+}
+
+.add-btn:hover {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+}
+
+/* ===== CLEAR BUTTON ===== */
+.clear-btn {
+    background: linear-gradient(135deg, #334155, #475569);
+    color: #e5e7eb;
+}
+
+.clear-btn:hover {
+    background: linear-gradient(135deg, #475569, #64748b);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(100, 116, 139, 0.35);
+}
+
+/* ===== ACTIVE CLICK EFFECT ===== */
+.btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== DISABLED STATE ===== */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+/* ========================= TODO ITEM ========================= */
+.show-part {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--border);
+    padding: 0px 20px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background: var(--card);
+    transition: background 0.3s, border 0.3s;
+}
+
+.show-part.completed .title {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+/* LEFT SECTION */
+.left {
+    flex: 1;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.todo-item-left {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.todo-item-right {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+/* ========================= CHECKBOX ========================= */
+.todo-item input[type="checkbox"] {
+    display: none; /* hide default checkbox */
+}
+
+.checkmark {
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.todo-item input[type="checkbox"]:checked + .checkmark {
+    background: #22c55e;
+    border-color: #22c55e;
+}
+
+.todo-item input[type="checkbox"]:checked + .checkmark::after {
+    content: "✓";
+}
+
+/* ========================= TITLE + IMAGE ========================= */
+.title {
+    font-family: 'Poppins', sans-serif;
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text);
+    font-weight: 400;
+    font-size: 1rem;
+    cursor: pointer; 
+    padding-left: 2px;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.title:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.todo-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.todo-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* RIGHT SECTION */
+.right {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* COUNTDOWN TIMER */
+.right-time {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+}
+
+.deadline {
+    display: flex;
+    gap: 6px;
+}
+
+.deadline-format {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+/* ACTION BUTTONS */
+.right-control {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.btn-outline {
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== GREEN BUTTON ===== */
+.green {
+    background: linear-gradient(135deg, #0ea5e9, #22c55e);
+    color: #ffffff;
+}
+
+.green:hover {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(34, 197, 94, 0.4);
+}
+
+/* ===== RED BUTTON ===== */
+.red {
+    background: linear-gradient(135deg, #7e5555, #ef4444);
+    color: #ffffff;
+}
+
+.red:hover {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(239, 68, 68, 0.4);
+}
+
+/* ===== ACTIVE CLICK EFFECT ===== */
+.btn-outline:active {
+    transform: scale(0.96);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================= TOAST MESSAGES ========================= */
+#toast-container {
+    position: fixed;
+    top: 6%;
+    right: 40%;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background: #22c55e;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.toast.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* ========================= THEME TOGGLE ========================= */
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--card);
+    padding: 6px 10px;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.switch {
+    position: relative;
+    width: 38px;
+    height: 20px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #94a3b8;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+    background: var(--primary);
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(18px);
+}
+
+/* ========================= SCROLLABLE TODO LIST ========================= */
+.todo-list-container {
+    max-height: 70vh; /* viewport height অনুযায়ী scrollable */
+    overflow-y: auto;
+    padding-right: 10px; /* scroll bar এর জন্য কিছু space */
+    scroll-behavior: smooth;
+    position: relative;
+    padding: 6px 4px;
+    border-radius: 4px;
+    border: 1px solid #94a3b8;
+}
+
+/* scrollbar styling */
+.todo-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.todo-list-container::-webkit-scrollbar-track {
+    background: var(--bg);
+    border-radius: 8px;
+}
+
+.todo-list-container::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 8px;
+}
+
+.todo-list-container::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* ========================= PAGINATION ========================= */
+.pagination{
+  margin: 18px auto 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Links and spans */
+.pagination a,
+.pagination span {
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Hover effect for links */
+.pagination a:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(14,165,233,0.3);
+}
+
+/* Active page */
+.pagination span.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(14,165,233,0.4);
+    cursor: default;
+}
+
+/* Disabled prev/next */
+
+/* Prev / Next styling */
+.pagination .prev,
+.pagination .next {
+    font-weight: 600;
+    padding: 0 12px;
+}
+/* ========================= RESPONSIVE ========================= */
+
+/* ---------- Mobile (≤600px) ---------- */
+@media (max-width: 600px) {
+
+    .container {
+        padding: 0;
+    }
+
+    /* Form */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Todo Card */
+    .show-part {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .left{
+        width: 100%;
+    }
+
+    /* Right section */
+    .right {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .right-time {
+        justify-content: flex-start;
+    }
+
+    .todo-item{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    /* Countdown */
+    .deadline {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .deadline-format {
+        width: 38px;
+        height: 38px;
+        font-size: 9px;
+    }
+
+    .right-control {
+        grid-template-columns: 1fr;   /* column layout */
+        width: 100%;
+        gap: 8px;
+    }
+
+    .right-control-done{
+        width: 100%;
+        background: var(--primary);
+        border-radius: 12px;
+    }
+    .right-control-delete {
+        width: 100%;
+        background: red;
+        border-radius: 12px;
+    }
+    .right-control a {
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 8px 0;
+        color: #020617;
+        font-size: 14px;
+        border-width: 2px; /* clean border like image */
+    }
+
+    .btn-outline {
+        text-align: center;
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    /* Image */
+    .todo-item-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .todo-image img {
+        width: 60px;
+        height: auto;
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+        top: 4px;
+        right: 4px;
+        transform: scale(0.9);
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 2px 4px;
+    }
+    .head-title{
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ---------- Tablet (601px – 900px) ---------- */
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .container {
+        max-width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .deadline-format {
+        width: 45px;
+        height: 45px;
+    }
+
+    .right-control {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .title {
+        max-width: 220px;
+    }
+
+    .todo-image img {
+        width: 70px;
+        height: auto;
+    }
+}
+
+
+/* ---------- Laptop (901px – 1200px) ---------- */
+@media (min-width: 901px) and (max-width: 1200px) {
+
+    .container {
+        max-width: 1000px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr 140px 120px 120px;
+    }
+
+    .right {
+        width: 45%;
+    }
+
+    .title {
+        max-width: 320px;
+    }
+
+    .todo-image img {
+        width: 80px;
+        height: auto;
+    }
+    .right-control {
+        grid-template-columns: auto auto;
+        justify-content: end;
+        gap: 8px;
+    }
+}
+
+
+/* ---------- Desktop (≥1201px) ---------- */
+@media (min-width: 1201px) {
+
+    .container {
+        max-width: 1100px;
+    }
+
+    .form-grid {
+        grid-template-columns: calc(65% - 200px) 190px 120px 110px 100px;
+    }
+
+    .right {
+        width: 40%;
+    }
+
+    .title {
+        max-width: 500px;
+    }
+
+    .todo-image img {
+        width: 90px;
+        height: auto;
+    }
+    .right-control {
+        grid-template-columns: auto auto;
+        justify-content: end;
+    }
+}
